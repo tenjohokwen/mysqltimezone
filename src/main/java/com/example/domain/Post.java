@@ -2,15 +2,18 @@ package com.example.domain;
 
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Entity
+@Audited
 @Table(name="POST")
-public class Post {
+public class Post extends AbstractAuditingEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
